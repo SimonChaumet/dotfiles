@@ -1,0 +1,7 @@
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
+chrisands/zsh-yarn-completions
+unixorn/fzf-zsh-plugin
+Aloxaf/fzf-tab
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
