@@ -7,6 +7,7 @@ source ~/.profile_env
 alias gaa="git add ."
 alias gc="git commit"
 alias bundle-zsh-plugins="antibody bundle < $DOTFILES_PATH/zsh/zsh_plugins.txt > $DOTFILES_PATH/zsh/zsh_plugins.sh"
+alias ls="ls --color=auto"
 
 # --- Colored LESS E.G for man ---
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -32,33 +33,9 @@ zstyle :compinstall filename '$HOME/.zshrc'
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 export ZSH_HIGHLIGHT_PATTERNS=('rm *\*' 'fg=white,bold,bg=red')
 
-# starship
-eval "$(starship init zsh)"
-
-autoload bashcompinit
-bashcompinit
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstal
-
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 	source /etc/profile.d/vte.sh
 fi
-
-# plugins
-source $DOTFILES_PATH/zsh/zsh_plugins.sh
-
-zstyle ':completion:*' menu select
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-
 
 fzf-git-branch() {
     git rev-parse HEAD > /dev/null 2>&1 || return
@@ -93,6 +70,33 @@ fzf-git-checkout() {
 alias gb='fzf-git-branch'
 alias gco='fzf-git-checkout'
 
+ssh-use-key() {
+    command="ssh-add $1; ${@:2}"
+    ssh-agent zsh -c $command
+}
+
+# starship
+eval "$(starship init zsh)"
+
+autoload bashcompinit
+bashcompinit
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstal
+
+# plugins
+source $DOTFILES_PATH/zsh/zsh_plugins.sh
+
+zstyle ':completion:*' menu select
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 
 # history
 bindkey "^[[A" history-substring-search-up
@@ -117,3 +121,5 @@ bindkey "^[[F" end-of-line
 # beginning
 bindkey "^[[H" beginning-of-line
 
+bashcompinit
+compinit

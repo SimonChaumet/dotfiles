@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dotbot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dotbot/lib/pyyaml" vcs="Git" />
   </component>
 </project>
