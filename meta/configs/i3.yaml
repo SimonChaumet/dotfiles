@@ -1,0 +1,17 @@
+- defaults:
+      link:
+          relink: true
+
+- create:
+      - ~/.scripts
+
+- link:
+    ~/.xinitrc: i3wm/xinitrc
+    ~/.config/i3/lock.sh: i3wm/lock.sh
+    ~/.config/i3/config: i3wm/config
+    ~/.config/rofi/config.rasi: i3wm/rofi-config.rasi
+    ~/.config/polybar/config.ini: i3wm/polybar.ini
+    ~/.config/polybar/launch.sh: i3wm/launch_polybar.sh
+    ~/.scripts:
+        glob: true
+        path: scripts/*

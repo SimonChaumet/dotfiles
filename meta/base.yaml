@@ -1,0 +1,2 @@
+- shell:
+    - command: "if [ -n $(grep '# Add local bins' ~/.profile) ]; then echo '# Add local bins\nexport PATH=\"${PATH}:${HOME}/.local/bin/\"' >> ~/.profile; fi"

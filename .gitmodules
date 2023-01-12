@@ -1,7 +1,4 @@
 [submodule "dotbot"]
-	path = dotbot
+	path = meta/dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "zsh/antibody"]
-	path = zsh/antibody
-	url = https://github.com/yanyingwang/antibody

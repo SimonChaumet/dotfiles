@@ -1,0 +1,6 @@
+[user]
+	name = Simon Chaumet
+[core]
+	editor = vim
+[push]
+    autoSetupRemote = true

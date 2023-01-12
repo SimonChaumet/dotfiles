@@ -2,12 +2,31 @@
 export TERM="xterm-256color"
 export SHELL="zsh"
 
-source ~/.profile_env
+if [ -f ~/.profile ]; then source ~/.profile; fi
+if [ -f ~/.profile_env ]; then source ~/.profile_env; fi
+
+if [ -f ~/.cache/wal/sequences ]; then (cat ~/.cache/wal/sequences &); fi
+
+autoload -Uz bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+# Load plugins
+source ~/.antidote/antidote.zsh
+
+antidote load
+
+# starship
+eval "$(starship init zsh)"
+
 # aliases
 alias gaa="git add ."
 alias gc="git commit"
-alias bundle-zsh-plugins="antibody bundle < $DOTFILES_PATH/zsh/zsh_plugins.txt > $DOTFILES_PATH/zsh/zsh_plugins.sh"
 alias ls="ls --color=auto"
+alias l="colorls -A --sd"
+alias ll="colorls -lA --sd"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
+alias dce="docker compose exec"
+alias dcr="docker compose restart"
 
 # --- Colored LESS E.G for man ---
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -27,8 +46,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 # bindkey -e
 # End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 export ZSH_HIGHLIGHT_PATTERNS=('rm *\*' 'fg=white,bold,bg=red')
@@ -75,19 +92,6 @@ ssh-use-key() {
     ssh-agent zsh -c $command
 }
 
-# starship
-eval "$(starship init zsh)"
-
-autoload bashcompinit
-bashcompinit
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstal
-
-# plugins
-source $DOTFILES_PATH/zsh/zsh_plugins.sh
-
 zstyle ':completion:*' menu select
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -123,3 +127,12 @@ bindkey "^[[H" beginning-of-line
 
 bashcompinit
 compinit
+
+
+# --- Load ASDF version management ---
+ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
+ASDF_COMPLETIONS="$ASDF_DIR/completions"
+. "$ASDF_DIR/asdf.sh"
+. "$ASDF_COMPLETIONS/asdf.bash"
+
+if [[ -z $DISPLAY ]]; then exec ssh-agent startx; fi

@@ -1,0 +1,27 @@
+- defaults:
+    link:
+      relink: true
+
+- link:
+    ~/.config/nvim/:
+      glob: true
+      create: true
+      path: neovim/*
+
+
+#- shell:
+#    - git clone --branch stable https://github.com/neovim/neovim ~/.neovim || true
+#    - command: cd ~/.neovim && make distclean || true
+#      stdout: true
+#      stderr: true
+#      stdin: true
+#    - command: cd ~/.neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+#      stdout: true
+#      stderr: true
+#      stdin: true
+#    - command: cd ~/.neovim && sudo make install
+#      stdin: true
+#      stdout: true
+#      stderr: true
+#    - git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim || true
+

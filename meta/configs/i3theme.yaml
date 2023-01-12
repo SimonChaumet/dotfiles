@@ -1,0 +1,18 @@
+- link:
+    ~/.xsettingsd: i3wm/xsettingsd
+
+- shell:
+    - command: git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git ~/.Tela-circle-icon-theme || true
+    - command: ~/.Tela-circle-icon-theme/install.sh black
+    - command: git clone https://github.com/vinceliuice/Graphite-gtk-theme.git ~/.Graphite-gtk-theme || true
+    - command: ~/.Graphite-gtk-theme/install.sh --color dark
+      stdout: true
+      stderr: true
+    - command: git clone https://github.com/dylanaraps/pywal ~/.pywal || true
+    - command: cd ~/.pywal && pip3 install --user .
+      stdout: true
+      stderr: true
+    - command: source ~/.profile
+    - command: if [ -d ~/.wallpapers ]; then wal -i ~/.wallpapers; fi
+      stdout: true
+      stderr: true

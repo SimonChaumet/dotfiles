@@ -1,0 +1,4 @@
+numlockx &
+xsettingsd &
+~/.local/bin/wal -R
+exec i3
