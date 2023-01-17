@@ -135,4 +135,4 @@ ASDF_COMPLETIONS="$ASDF_DIR/completions"
 . "$ASDF_DIR/asdf.sh"
 . "$ASDF_COMPLETIONS/asdf.bash"
 
-if [[ -z $DISPLAY ]]; then exec ssh-agent startx; fi
+if [ -z $DISPLAY ] && [ -x "$(command -v startx)" ]; then exec ssh-agent startx; fi

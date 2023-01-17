@@ -1,5 +1,6 @@
 arch-base-deps
 shell
+kitty
 vim
 neovim
 i3

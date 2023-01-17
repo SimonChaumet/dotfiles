@@ -1,4 +1,4 @@
-mattmc3/zephyr path:plugins/completions
+mattmc3/zephyr path:plugins/completion
 mfaerevaag/wd
 unixorn/fzf-zsh-plugin
 

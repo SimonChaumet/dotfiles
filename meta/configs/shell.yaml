@@ -8,7 +8,6 @@
     ~/.zsh_plugins.txt: zsh/zsh_plugins.txt
     ~/.bashrc: bashrc
     ~/.default-python-packages: default-python-packages
-    ~/.config/kitty/kitty.conf: kitty.conf
 
 - shell:
     - command: git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote || true
@@ -17,5 +16,8 @@
       description: Getting asdf for version managing
     - command: sh $DOTFILES_PATH/load_asdf_plugins.sh
       description: Loading asdf plugins
+      stdout: true
+      stderr: true
+    - command: if ! [ -x "$(command -v starship)" ]; then curl -sS https://starship.rs/install.sh | sh; fi
       stdout: true
       stderr: true

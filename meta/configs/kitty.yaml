@@ -1,0 +1,10 @@
+- create:
+    - ~/.config/kitty
+
+- link:
+    ~/.config/kitty/kitty.conf: kitty.conf
+
+- shell:
+    - command: if ! [ -x "$(command -v kitty)" ]; then curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin; fi
+      stdout: true
+      stderr: true
