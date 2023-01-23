@@ -1,0 +1,7 @@
+- shell:
+    - command: if ! [ -x "$(command -v brew)" ];then bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";fi
+      stdout: true
+      stderr: true
+    - command: brew install ripgrep navi jq
+      stdout: true
+      stderr: true

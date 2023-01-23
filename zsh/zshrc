@@ -125,6 +125,8 @@ bindkey "^[[F" end-of-line
 # beginning
 bindkey "^[[H" beginning-of-line
 
+if [ -x "$(command -v navi)" ]; then eval "$(navi widget zsh)"; fi
+
 bashcompinit
 compinit
 

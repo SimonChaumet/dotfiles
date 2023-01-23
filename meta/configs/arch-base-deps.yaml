@@ -4,7 +4,7 @@
       stderr: true
       stdin: true
 # Prerequisites for neovim
-    - command: yay -Sy base-devel cmake unzip ninja tree-sitter curl
+    - command: yay -Sy base-devel cmake unzip ninja tree-sitter curl ripgrep navi jq
       stdout: true
       stderr: true
       stdin: true

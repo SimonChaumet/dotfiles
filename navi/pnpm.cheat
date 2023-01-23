@@ -1,0 +1,10 @@
+% node, npm
+
+# NPM scripts
+npm run "<script_query>"
+# YARN scripts
+yarn run "<script_query>"
+# PNPM scripts
+pnpm run "<script_query>"
+
+$ script_query: cat package.json | jq '.scripts | to_entries[] | .key' | sed 's/"//g' | sort -u

@@ -21,3 +21,5 @@
     - command: if ! [ -x "$(command -v starship)" ]; then curl -sS https://starship.rs/install.sh | sh; fi
       stdout: true
       stderr: true
+    - command: if ! [ -d "$(dirname "$(navi info config-path)")" ];then mkdir -p "$(dirname "$(navi info config-path)")"; fi
+    - command: ln -sf $DOTFILES_PATH/navi/config.yaml "$(navi info config-path)"
