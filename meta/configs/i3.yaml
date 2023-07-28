@@ -4,6 +4,10 @@
 
 - create:
       - ~/.scripts
+      - ~/.config
+      - ~/.config/i3
+      - ~/.config/rofi
+      - ~/.config/polybar
 
 - link:
     ~/.xinitrc: i3wm/xinitrc

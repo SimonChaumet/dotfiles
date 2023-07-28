@@ -5,7 +5,7 @@ unixorn/fzf-zsh-plugin
 mattmc3/zephyr path:plugins/directory
 mattmc3/zephyr path:plugins/environment
 mattmc3/zephyr path:plugins/history
-mattmc3/zephyr path:plugins/autosuggestions
+mattmc3/zephyr path:plugins/autosuggest
 # mattmc3/zephyr path:plugins/colors
 mattmc3/zephyr path:plugins/editor
 mattmc3/zephyr path:plugins/prompt

@@ -1,43 +1,4 @@
-#!/bin/sh
-
-BLANK='#00000000'
-CLEAR='#ffffff22'
-DEFAULT="$(xrdb -get i3lock.foreground)cc"
-TEXT="$(xrdb -get i3lock.foreground)ee"
-OUT="$(xrdb -get i3lock.color3)ee"
-WRONG='#A20000ee'
-VERIFYING="$(xrdb -get i3lock.color3)bb"
-
-# convert image.jpg -resize $(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/') RGB:- | i3lock --raw $(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/'):rgb --image /dev/stdin
-lock_cmd="i3lock --nofork \
---insidever-color=$CLEAR     \
---ringver-color=$VERIFYING   \
-\
---insidewrong-color=$CLEAR   \
---ringwrong-color=$WRONG     \
-\
---inside-color=$BLANK        \
---ring-color=$DEFAULT        \
---line-color=$BLANK          \
---separator-color=$DEFAULT   \
-\
---verif-color=$TEXT          \
---wrong-color=$TEXT          \
---time-color=$TEXT           \
---date-color=$TEXT           \
---layout-color=$TEXT         \
---keyhl-color=$OUT         \
---bshl-color=$OUT          \
---blur 5                     \
---clock                      \
---indicator                  \
---time-str=%H:%M:%S        \
---date-str=%A, %Y-%m-%d       \
---keylayout 1                \
-"
-
-arg_image=$(cat ~/.cache/wal/wal)
-
+#!/bin/bash
 
 #Constants
 DISPLAY_RE="([0-9]+)x([0-9]+)\\+([0-9]+)\\+([0-9]+)" # Regex to find display dimensions
@@ -98,7 +59,7 @@ OUTPUT_IMG_HEIGHT=0 # Decide size to cover all screens
 
 #i3lock command
 if [ "$lock_cmd" ]; then
-        LOCK_BASE_CMD="$lock_cmd -i $OUTPUT_IMG"
+        LOCK_BASE_CMD="$lock_cmd"
 else
         LOCK_BASE_CMD="i3lock -i $OUTPUT_IMG"
 fi
@@ -109,8 +70,6 @@ else
         LOCK_ARGS="-t -e"  # Default
 fi
 LOCK_CMD="$LOCK_BASE_CMD $LOCK_ARGS"
-
-echo $LOCK_CMD
 
 if [ -e $OUTPUT_IMG ]
 then
@@ -145,10 +104,6 @@ do
     PARAMS="$PARAMS -type TrueColor $CACHE_IMG -geometry +$SCREEN_X+$SCREEN_Y -composite "
   fi
 done <<<"`xrandr`"
-
-echo $OUTPUT_IMG
-echo $OUTPUT_IMG_WIDTH $OUTPUT_IMG_HEIGHT
-echo $PARAMS
 
 #Execute ImageMagick:
 eval convert -size ${OUTPUT_IMG_WIDTH}x${OUTPUT_IMG_HEIGHT} 'xc:black' $OUTPUT_IMG

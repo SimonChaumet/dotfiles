@@ -3,8 +3,7 @@
       stdout: true
       stderr: true
       stdin: true
-# Prerequisites for neovim
-    - command: yay -Sy base-devel cmake unzip ninja tree-sitter curl ripgrep navi jq
+    - command: yay -Sy --needed base-devel zsh cmake unzip ninja tree-sitter curl ripgrep navi jq dunst neovim nvim-packer-git
       stdout: true
       stderr: true
       stdin: true

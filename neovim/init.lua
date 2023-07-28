@@ -1,6 +1,7 @@
+vim.cmd([[
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vimrc
+]])
 
-require("globals")
-require("settings")
-require("plugins.packer")
-require("maps")
-require("statusline")
+require("./")

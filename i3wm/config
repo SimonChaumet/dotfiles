@@ -135,9 +135,9 @@ set $ws9 "9"
 set $ws10 "10"
 
 # Workspaces assign
-assign [class="Slack"] $ws2
-assign [class="Teams"] $ws2
-assign [class="Prospect"] $ws3
+# assign [class="Slack"] $ws2
+# assign [class="Teams"] $ws2
+# assign [class="Prospect"] $ws3
 
 # Floating
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -157,7 +157,7 @@ for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
 for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
+# for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
@@ -195,6 +195,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Shift+Left move workspace to output left
+bindsym $mod+Control+Shift+Down move workspace to output down
+bindsym $mod+Control+Shift+Up move workspace to output up
+bindsym $mod+Control+Shift+Right move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -306,6 +310,6 @@ mode "$mode_gaps_outer" {
 }
 
 exec "setxkbmap -layout fr"
-exec --no-startup-id i3-msg "workspace 3; layout tabbed; exec /usr/local/bin/prospect-mail; exec /usr/bin/thunderbird"
-exec --no-startup-id i3-msg "exec /usr/bin/slack; exec /usr/bin/teams"
+# exec --no-startup-id i3-msg "workspace 3; layout tabbed; exec /usr/local/bin/prospect-mail; exec /usr/bin/thunderbird"
+# exec --no-startup-id i3-msg "exec /usr/bin/slack; exec /usr/bin/teams"
 exec --no-startup-id i3-msg "workspace 1"
