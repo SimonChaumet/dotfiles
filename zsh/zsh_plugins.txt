@@ -5,11 +5,11 @@ unixorn/fzf-zsh-plugin
 mattmc3/zephyr path:plugins/directory
 mattmc3/zephyr path:plugins/environment
 mattmc3/zephyr path:plugins/history
-mattmc3/zephyr path:plugins/autosuggest
+zsh-users/zsh-autosuggestions
 # mattmc3/zephyr path:plugins/colors
-mattmc3/zephyr path:plugins/editor
+# mattmc3/zephyr path:plugins/editor
 mattmc3/zephyr path:plugins/prompt
 mattmc3/zephyr path:plugins/utility
 Aloxaf/fzf-tab
-mattmc3/zephyr path:plugins/syntax-highlighting
-mattmc3/zephyr path:plugins/history-substring-search
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search

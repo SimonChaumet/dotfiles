@@ -12,7 +12,7 @@
 - shell:
     - command: git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote || true
       description: Getting antidote for zsh module bundle
-    - command: git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2 || true
+    - command: git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0 || true
       description: Getting asdf for version managing
     - command: sh $DOTFILES_PATH/load_asdf_plugins.sh
       description: Loading asdf plugins

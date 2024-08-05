@@ -4,3 +4,5 @@
 	editor = vim
 [push]
     autoSetupRemote = true
+[init]
+	defaultBranch = main

@@ -16,3 +16,6 @@
     - command: if [ -d ~/.wallpapers ]; then wal -i ~/.wallpapers; fi
       stdout: true
       stderr: true
+    - command: betterlockscreen -u $(cat ~/.cache/wal/wal)
+      stdout: true
+      stderr: true

@@ -1,4 +1,4 @@
 numlockx &
 xsettingsd &
-~/.asdf/shims/wal -R
+wal -R
 exec i3

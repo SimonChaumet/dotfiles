@@ -7,12 +7,13 @@ if [ -f ~/.profile_env ]; then source ~/.profile_env; fi
 
 if [ -f ~/.cache/wal/sequences ]; then (cat ~/.cache/wal/sequences &); fi
 
-autoload -Uz bashcompinit && bashcompinit
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 # Load plugins
 source ~/.antidote/antidote.zsh
 
-antidote load
+antidote load ~/.zsh_plugins.txt
+if [ -f /usr/bin/aws_zsh_completer.sh ]; then source /usr/bin/aws_zsh_completer.sh; fi
 
 # starship
 eval "$(starship init zsh)"
@@ -126,10 +127,6 @@ bindkey "^[[F" end-of-line
 bindkey "^[[H" beginning-of-line
 
 if [ -x "$(command -v navi)" ]; then eval "$(navi widget zsh)"; fi
-
-bashcompinit
-compinit
-
 
 # --- Load ASDF version management ---
 ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
